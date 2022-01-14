@@ -1,0 +1,28 @@
+repositories {
+    mavenCentral()
+}
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+dependencies {
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    // Use JUnit test framework
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// Java version selection
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+mainClassName = "main.Main"
+
+run {
+	standardInput = System.in
+	if (project.hasProperty("args")) {
+		args Eval.me(args)
+	}
+}
