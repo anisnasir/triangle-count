@@ -2,9 +2,7 @@ package struct;
 
 import input.StreamEdge;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 import java.util.Map.Entry;
 
 
@@ -13,7 +11,7 @@ import java.util.Map.Entry;
  */
 public class NodeMap {
 
-    public HashMap<Long, HashSet<Long>> map;
+    public Map<Long, HashSet<Long>> map;
     public int numEdges;
 
     public NodeMap() {
@@ -23,16 +21,14 @@ public class NodeMap {
 
     public void addEdge(Long src, Long dest) {
         numEdges++;
-        if (map.containsKey(src)) {
-            HashSet<Long> neighbors = map.get(src);
-            neighbors.add(dest);
-            map.put(src, neighbors);
-        } else {
-            HashSet<Long> neighbors = new HashSet<Long>();
-            neighbors.add(dest);
-            map.put(src, neighbors);
-        }
+        HashSet<Long> neighbors = map.getOrDefault(src, new HashSet<>());
+        neighbors.add(dest);
+        map.put(src, neighbors);
 
+    }
+
+    public Map<Long, HashSet<Long>> getMap() {
+        return map;
     }
 
     public void removeEdge(Long src, Long dest) {

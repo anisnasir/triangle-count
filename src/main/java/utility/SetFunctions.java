@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SetFunctions {
-	public HashSet<String> intersectionSet (Set<String> set1, Set<String> set2) {
+	public static HashSet<String> intersectionSet (Set<String> set1, Set<String> set2) {
 		if(set1 == null)
 			return new HashSet<String>();
 		else if (set2 == null)
@@ -27,9 +27,9 @@ public class SetFunctions {
 		return returnSet;
 	}
 	
-	public int intersection (Set<String> set1, Set<String> set2) {
-		Set<String> a;
-		Set<String> b;
+	public static int intersection (Set<Long> set1, Set<Long> set2) {
+		Set<Long> a;
+		Set<Long> b;
 		int counter = 0;
 		if(set1 == null || set2 == null)
 			return 0;
@@ -40,7 +40,7 @@ public class SetFunctions {
 			a = set2;
 			b = set1;
 		}
-		for (String e : a) {
+		for (Long e : a) {
 			if (b.contains(e)) {
 				counter++;
 			} 
