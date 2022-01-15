@@ -42,9 +42,7 @@ public class Main {
 
         }
 
-        int maxDegree = getMaxDegree(nodeMap);
-
-        System.out.println("max degree: " + maxDegree);
+        
     }
 
     private static int getMaxDegree(NodeMap nodeMap) {
